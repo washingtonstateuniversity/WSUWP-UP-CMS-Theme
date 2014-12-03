@@ -1,0 +1,7 @@
+/*
+Theme name: WordPress WSU
+Editors: Nate Owen
+*/
+
+/*THIS CSS IS DESIGNED TO POSITION AND STYLE THE VIDEOS BELOW*/
+div.videoDiv {   position:relative;   float:left;   width:150px;   height:180px;   margin:10px; }
