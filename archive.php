@@ -41,17 +41,6 @@ get_header();
 		<div class="post">
 				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
       <aside class="sm">
-
-        <div class="right">
-          <a href="http://feeds.feedburner.com/PresidentPerspectives">
-            <img src="/beta/v1/images/ico-rss.png" alt="RSS feed" />
-          </a>
-        </div>
-        <h4>Recent posts</h4>
-        <ul>
-          <?php mdv_recent_posts(4,'<li>','</li>',true,0,false); ?>
-          <?php the_tags(__('Tags: '), ', ', ''); ?>
-        </ul>
         <?php get_sidebar();?>
       </aside>
       <small><?php the_time('l, F jS, Y') ?></small>

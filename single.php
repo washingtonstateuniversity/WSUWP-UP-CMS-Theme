@@ -10,14 +10,6 @@
 		<br/>
 		<div class="post2" id="post-<?php the_ID(); ?>">
 			<aside class="sm">
-				<div class="right">
-					<a href="http://feeds.feedburner.com/PresidentPerspectives"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/ico-rss.png' ); ?>" alt="RSS feed" /></a>
-				</div>
-				<h4>Recent posts </h4>
-				<ul>
-					<?php if ( function_exists( 'mdv_recent_posts' ) ) : mdv_recent_posts( 4, '<li>', '</li>', true, 0, false ); endif;?>
-					<?php the_tags( __( '<h4>Tags: </h4>'), ', ', '' ); ?>
-				</ul>
 				<?php get_sidebar();?>
 			</aside>
 			<h3><?php the_title(); ?></h3>

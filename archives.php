@@ -26,13 +26,8 @@ get_header();
 </div>
 --->
 	<aside class="sm">
-      	<div class="right"><a href="http://president.wsu.edu/blog/perspectives/?feed=rss2"><img src="/beta/v1/images/ico-rss.png" alt="RSS feed"></a></div>
-        <h4>Recent posts</h4>
-    <ul>
-      <?php mdv_recent_posts(4,'<li>','</li>',true,0,false);?>
-    </ul>
-    <?php get_sidebar();?>
-      </aside>
+		<?php get_sidebar();?>
+	</aside>
 
 <?php while(have_posts()) : the_post(); ?>
 <ul>
