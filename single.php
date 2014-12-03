@@ -18,8 +18,8 @@
 				</div>
 				<h4>Recent posts </h4>
 				<ul>
-					<?php mdv_recent_posts(4,'<li>','</li>',true,0,false);?>
-					<?php the_tags(__('<h4>Tags: </h4>'), ', ', ''); ?>
+					<?php if ( function_exists( 'mdv_recent_posts' ) ) : mdv_recent_posts( 4, '<li>', '</li>', true, 0, false ); endif;?>
+					<?php the_tags( __( '<h4>Tags: </h4>'), ', ', '' ); ?>
 				</ul>
 				<?php get_sidebar();?>
 			</aside>
