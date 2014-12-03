@@ -1,4 +1,4 @@
-<?php 
+<?php
 get_header();
 ?>
 
@@ -8,7 +8,7 @@ get_header();
 
 	</div>
 
-<?php 
+<?php
 echo $sidebar;
 get_sidebar();
 echo $after;

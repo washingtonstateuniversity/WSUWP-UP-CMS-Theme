@@ -1,4 +1,4 @@
-<?php 
+<?php
 get_header();
 ?>
 
@@ -31,7 +31,7 @@ get_header();
 	<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
 	</div>
 
-<?php 
+<?php
 //echo $sidebar;
 //get_sidebar();
 echo $after; ?>

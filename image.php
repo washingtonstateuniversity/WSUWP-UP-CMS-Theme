@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("setup.inc");
 echo $before;
 ?>
@@ -63,7 +63,7 @@ echo $before;
 
 	</div>
 
-<?php 
+<?php
 echo $sidebar;
 get_sidebar();
 echo $after;

@@ -1,4 +1,4 @@
-<?php 
+<?php
 get_header();
 ?>
 <style>
@@ -79,7 +79,7 @@ get_header();
 	<?php endif; ?>
 
 	</div>
-<?php 
+<?php
 wp_footer();
 echo $after;
 ?>

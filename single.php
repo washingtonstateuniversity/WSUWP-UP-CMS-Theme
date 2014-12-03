@@ -6,7 +6,7 @@
   h3{line-height:normal;}
   .wpdate {margin-top:20px;}
 </style>
-<?php 
+<?php
 get_header();
 ?>
 
@@ -41,9 +41,9 @@ get_header();
 				<?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
         <div class="meta">
           <!--<?php _e("Filed under:"); ?> 33 <?php the_category(',') ?> &#8212; <?php the_tags(__('Tags: '), ', ', ' &#8212; '); ?>-->
-        </div> 
+        </div>
 
-				
+
 
 			</div>
 		</div>
@@ -56,7 +56,7 @@ get_header();
 
 	</div>
 
-<?php 
+<?php
 
 echo $after;
 ?>

@@ -2,16 +2,16 @@
 	<?php  error_reporting(0);
 ?>
 <div id="sidebar">
-    
-    
-    <!--FOR FEEDBURNER, put this url in above href http://feeds2.feedburner.com/wsu/EducationBlog/ 
+
+
+    <!--FOR FEEDBURNER, put this url in above href http://feeds2.feedburner.com/wsu/EducationBlog/
 
 			<a href="http://president.wsu.edu/blog/perspectives/?page_id=342">Archives</a>-->
 
 			<?php 	/* Widgetized sidebar, if you have the plugin installed. */
-					if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : 
+					if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) :
             ?>
-	
+
 
 				<?php include (TEMPLATEPATH . '/searchform.php'); ?>
 
@@ -22,7 +22,7 @@
 
 			-->
 
-			
+
 
 			<?php endif; ?>
 	</div>

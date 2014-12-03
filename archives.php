@@ -10,7 +10,7 @@ Template Name: Archives
 */
 ?>
 
-<?php 
+<?php
 get_header();
 ?>
 	<h5>Perspectives</h5>
@@ -47,7 +47,7 @@ foreach($myposts as $post) :
 
 <?php endwhile; ?>
 
-<?php 
+<?php
 echo $sidebar;
 get_sidebar();
 wp_footer();

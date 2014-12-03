@@ -1,4 +1,4 @@
-<?php 
+<?php
 get_header();
 ?>
 	<style>
@@ -42,17 +42,17 @@ get_header();
   input.form-white
   {
   width:95% !important;
-  }  
+  }
   h3{line-height:normal;}
-	.wpdate {margin-top:20px;}  
+	.wpdate {margin-top:20px;}
   </style>
 	<h1>Perspectives</h1>
 	<div class="divider"></div>
 	<aside class="sm">
-	
+
       	<div class="right"><a href="http://feeds.feedburner.com/PresidentPerspectives"><img src="/beta/v1/images/ico-rss.png" alt="RSS feed" /></a></div>
         <h4>Recent posts</h4>
-		
+
     <ul>
           <?php mdv_recent_posts(4,'<li>','</li>',true,0,false); ?>
       <?php the_tags(__('Tags: '), ', ', ''); ?>
@@ -62,7 +62,7 @@ get_header();
 	<?php if (have_posts()) : ?>
 
 		<?php while (have_posts()) : the_post(); ?>
-              
+
 				<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 				<p class="wpdate"><em><?php the_date(); ?></em></p>
 
@@ -83,6 +83,6 @@ get_header();
 	<?php endif; ?>
 
 <!-- after -->
-<?php 
+<?php
 echo $after;
 ?>
