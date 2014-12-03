@@ -26,7 +26,6 @@ foreach( $myposts as $post ) {
 </ul>
 
 <?php
-upcms_display_sidebar();
 get_sidebar();
 wp_footer();
 upcms_display_footer();

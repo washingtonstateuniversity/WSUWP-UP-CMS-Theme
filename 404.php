@@ -7,6 +7,5 @@
 	</div>
 
 <?php
-upcms_display_sidebar();
 get_sidebar();
 upcms_display_footer();

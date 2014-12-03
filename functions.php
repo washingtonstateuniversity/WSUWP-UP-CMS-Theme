@@ -21,11 +21,3 @@ function upcms_display_footer() {
 		echo $after;
 	}
 }
-
-function upcms_display_sidebar() {
-	global $sidebar;
-
-	if ( ! empty( $sidebar ) ) {
-		echo $sidebar;
-	}
-}
