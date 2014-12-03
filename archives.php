@@ -11,8 +11,7 @@ Template Name: Archives
 ?>
 
 <?php 
-include("setup.inc");
-echo $before;
+get_header();
 ?>
 	<h5>Perspectives</h5>
 	<h1>Archives</h1>

@@ -5,8 +5,7 @@ Template Name: Links
 ?>
 
 <?php 
-include("setup.inc");
-echo $before;
+get_header();
 ?>
 
 <div id="content2" class="widecolumn">

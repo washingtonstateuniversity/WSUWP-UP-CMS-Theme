@@ -1,6 +1,5 @@
 <?php 
-include("setup.inc");
-echo $before;
+get_header();
 ?>
 	<style>
     #dateicon
