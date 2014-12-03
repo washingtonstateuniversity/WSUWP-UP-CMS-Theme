@@ -1,6 +1,4 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 <style>
     #dateicon {
 		-moz-background-clip:border;

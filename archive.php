@@ -1,6 +1,4 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 <style>input.form-white { width:95% !important; } .post { margin: 16px 0 0; }</style>
 
 <div id="content2" class="narrowcolumn">

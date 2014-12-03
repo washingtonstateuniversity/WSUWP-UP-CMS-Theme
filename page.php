@@ -1,6 +1,4 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 
 <div id="thecontent" class="narrowcolumn">
     <aside class="sm">

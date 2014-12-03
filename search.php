@@ -1,6 +1,4 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 
 	<div id="content2" class="narrowcolumn">
 
