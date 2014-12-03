@@ -11,7 +11,7 @@
 		<div class="post2" id="post-<?php the_ID(); ?>">
 			<aside class="sm">
 				<div class="right">
-					<a href="http://feeds.feedburner.com/PresidentPerspectives"><img src="/beta/v1/images/ico-rss.png" alt="RSS feed" /></a>
+					<a href="http://feeds.feedburner.com/PresidentPerspectives"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/ico-rss.png' ); ?>" alt="RSS feed" /></a>
 				</div>
 				<h4>Recent posts </h4>
 				<ul>
