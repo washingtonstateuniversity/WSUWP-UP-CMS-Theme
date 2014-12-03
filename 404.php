@@ -1,7 +1,4 @@
-<?php 
-include("setup.inc");
-echo $before;
-?>
+<?php get_header(); ?>
 
 	<div id="content2" class="narrowcolumn">
 
@@ -9,8 +6,7 @@ echo $before;
 
 	</div>
 
-<?php 
-echo $sidebar;
+<?php
+upcms_display_sidebar();
 get_sidebar();
-echo $after;
-?>
+upcms_display_footer();
