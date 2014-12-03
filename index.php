@@ -84,5 +84,4 @@ get_header();
 
 <!-- after -->
 <?php
-echo $after;
-?>
+upcms_display_footer();

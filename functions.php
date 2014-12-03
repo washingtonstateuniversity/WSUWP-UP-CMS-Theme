@@ -13,3 +13,19 @@ function upcms_theme_widgets_init() {
 	);
 	register_sidebar( $widget_options );
 }
+
+function upcms_display_footer() {
+	global $after;
+
+	if ( ! empty( $after ) ) {
+		echo $after;
+	}
+}
+
+function upcms_display_sidebar() {
+	global $sidebar;
+
+	if ( ! empty( $sidebar ) ) {
+		echo $sidebar;
+	}
+}

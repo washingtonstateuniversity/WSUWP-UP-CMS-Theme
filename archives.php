@@ -48,8 +48,7 @@ foreach($myposts as $post) :
 <?php endwhile; ?>
 
 <?php
-echo $sidebar;
+upcms_display_sidebar();
 get_sidebar();
 wp_footer();
-echo $after;
-?>
+upcms_display_footer();

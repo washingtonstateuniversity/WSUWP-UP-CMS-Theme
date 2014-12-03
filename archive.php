@@ -81,5 +81,4 @@ get_header();
 	</div>
 <?php
 wp_footer();
-echo $after;
-?>
+upcms_display_footer();

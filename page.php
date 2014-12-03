@@ -32,6 +32,4 @@ get_header();
 	</div>
 
 <?php
-//echo $sidebar;
-//get_sidebar();
-echo $after; ?>
+upcms_display_footer();

@@ -18,7 +18,6 @@ get_header();
 </div>
 
 <?php
-echo $sidebar;
+upcms_display_sidebar();
 get_sidebar();
-echo $after;
-?>
+upcms_display_footer();

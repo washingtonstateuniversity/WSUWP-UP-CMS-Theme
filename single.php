@@ -35,5 +35,4 @@
 	</div>
 
 <?php
-
-echo $after;
+upcms_display_footer();
