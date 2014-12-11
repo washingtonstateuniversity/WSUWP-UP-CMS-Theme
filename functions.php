@@ -59,7 +59,7 @@ class CMS_Theme {
 		$clean_settings = array();
 
 		foreach( $settings as $setting => $data ) {
-			if ( ! in_array( $setting, array( 'host', 'title', 'id', 'url', 'siteid', 'regionlist' ) ) ) {
+			if ( ! in_array( $setting, array( 'host', 'title', 'id', 'url' ) ) ) {
 				continue;
 			}
 
@@ -83,15 +83,11 @@ class CMS_Theme {
 		<div class="wsuwp-cms-temlate-settings">
 			<label for="cms-server-host">CMS Hostname:</label>
 			<input id="cms-server-host" name="wsuwp_cms_template[host]" value="<?php if ( isset( $cms_template['host'] ) ) : echo esc_attr( $cms_template['host'] ); endif; ?>" />
-			<label for="cms-template-siteid">Site ID:</label>
-			<input id="cms-template-siteid" name="wsuwp_cms_template[siteid]" value="<?php if ( isset( $cms_template['siteid'] ) ) : echo esc_attr( $cms_template['siteid'] ); endif; ?>" />
-			<label for="cms-template-regionlist">CMS Region List:</label>
-			<input id="cms-template-regionlist" name="wsuwp_cms_template[regionlist]" value="<?php if ( isset( $cms_template['regionlist'] ) ) : echo esc_attr( $cms_template['regionlist'] ); endif; ?>" />
 			<label for="cms-template-id">CMS Template ID:</label>
 			<input id="cms-template-id" name="wsuwp_cms_template[id]" value="<?php if ( isset( $cms_template['id'] ) ) : echo esc_attr( $cms_template['id'] ); endif; ?>" />
 			<label for="cms-template-title">CMS Title:</label>
 			<input id="cms-template-title" name="wsuwp_cms_template[title]" value="<?php if ( isset( $cms_template['title'] ) ) : echo esc_attr( $cms_template['title'] ); endif; ?>" />
-			<label for="cms-template-url">URL to highlight:</label>
+			<label for="cms-template-url">CMS URL:</label>
 			<input id="cms-template-url" name="wsuwp_cms_template[url]" value="<?php if ( isset( $cms_template['url'] ) ) : echo esc_attr( $cms_template['url'] ); endif; ?>" />
 		</div>
 		<style>
@@ -121,24 +117,24 @@ class CMS_Theme {
 		// Allow uses of `get_template_data()` to override the default settings.
 		wp_parse_args( $args, $cms_template );
 
-		if ( empty( $args['host'] ) ) {
+		if ( empty( $cms_template['host'] ) ) {
 			return;
 		}
 
 		$the_title =  single_post_title( '', false );
 		if ( empty( $the_title ) ) {
-			$the_title = $args['title'];
+			$the_title = $cms_template['title'];
 		}
 
-		$soapendpoint = 'http://' . esc_attr( $args['host'] ) . '/edit/SoapService.asmx?wsdl';
+		$soapendpoint = 'http://' . esc_attr( $cms_template['host'] ) . '/edit/SoapService.asmx?wsdl';
 		$client = new SoapClient( $soapendpoint, array( 'trace' => 1, 'exceptions' => 1 ) );
 
 		$template_args = array(
 			'title'      => esc_html( $the_title ),
-			'templateid' => absint( $args['id'] ),
-			'regionlist' => esc_html($args['regionlist']),
-			'currenturl' => esc_attr( $args['url'] ),
-			'siteid'     => absint( $args['siteid'] ),
+			'templateid' => absint( $cms_template['id'] ),
+			'regionlist' => 'body',
+			'currenturl' => esc_attr( $cms_template['url'] ),
+			'siteid'     => 1,
 			'variables'  => '',
 		);
 		$template = $client->getTemplate( $template_args );
