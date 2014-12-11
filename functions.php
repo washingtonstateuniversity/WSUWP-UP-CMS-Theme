@@ -10,7 +10,21 @@ class CMS_Theme {
 	 * Setup theme hooks.
 	 */
 	public function __construct() {
+		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_action( 'admin_init', array( $this, 'display_settings' ) );
+	}
+
+	/**
+	 * Register sidebars used by the theme.
+	 */
+	public function widgets_init() {
+		$widget_options = array(
+			'before_widget' => '<p id="%1$s" class="widget %2$s">',
+			'after_widget' => '</p>',
+			'before_title' => '<h4 class="widgettitle">',
+			'after_title' => '</h4>',
+		);
+		register_sidebar( $widget_options );
 	}
 
 	/**
@@ -118,20 +132,6 @@ class CMS_Theme {
 	}
 }
 $wsuwp_cms_theme = new CMS_Theme();
-
-add_action( 'widgets_init', 'upcms_theme_widgets_init' );
-/**
- * Register sidebars used by the theme.
- */
-function upcms_theme_widgets_init() {
-	$widget_options = array(
-		'before_widget' => '<p id="%1$s" class="widget %2$s">',
-		'after_widget' => '</p>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	);
-	register_sidebar( $widget_options );
-}
 
 /**
  * Output the "before" data provided from our call to the CMS Template.
