@@ -116,29 +116,39 @@ class CMS_Theme {
 	 * @param array $args
 	 */
 	public function get_template_data( $args = array() ) {
-		$cms_template = get_option( 'wsuwp_cms_template' );
+		$default_args = array(
+			'host' => '',
+			'title' => '',
+			'templateid' => '',
+			'regionlist' => 'body',
+			'currenturl' => '',
+			'siteid' => 1,
+			'variables' => '',
+		);
 
+		// Ensure all keys exist as default args.
+		$cms_template = wp_parse_args( get_option( 'wsuwp_cms_template', array() ), $default_args );
 		// Allow uses of `get_template_data()` to override the default settings.
-		wp_parse_args( $args, $cms_template );
+		$cms_template = wp_parse_args( $args, $cms_template );
 
-		if ( empty( $args['host'] ) ) {
+		if ( empty( $cms_template['host'] ) ) {
 			return;
 		}
 
 		$the_title =  single_post_title( '', false );
 		if ( empty( $the_title ) ) {
-			$the_title = $args['title'];
+			$the_title = $cms_template['title'];
 		}
 
-		$soapendpoint = 'http://' . esc_attr( $args['host'] ) . '/edit/SoapService.asmx?wsdl';
+		$soapendpoint = 'http://' . esc_attr( $cms_template['host'] ) . '/edit/SoapService.asmx?wsdl';
 		$client = new SoapClient( $soapendpoint, array( 'trace' => 1, 'exceptions' => 1 ) );
 
 		$template_args = array(
 			'title'      => esc_html( $the_title ),
-			'templateid' => absint( $args['id'] ),
-			'regionlist' => esc_html($args['regionlist']),
-			'currenturl' => esc_attr( $args['url'] ),
-			'siteid'     => absint( $args['siteid'] ),
+			'templateid' => absint( $cms_template['id'] ),
+			'regionlist' => esc_html( $cms_template['regionlist'] ),
+			'currenturl' => esc_attr( $cms_template['url'] ),
+			'siteid'     => absint( $cms_template['siteid'] ),
 			'variables'  => '',
 		);
 		$template = $client->getTemplate( $template_args );
