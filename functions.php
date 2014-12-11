@@ -153,6 +153,8 @@ $wsuwp_cms_theme = new CMS_Theme();
 
 /**
  * Output the "before" data provided from our call to the CMS Template.
+ *
+ * @param array $args
  */
 function upcms_display_template_before( $args = array() ) {
 	global $wsuwp_cms_theme;
