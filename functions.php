@@ -2,8 +2,18 @@
 
 class CMS_Theme {
 
+	/**
+	 * Holds the "before" template data for output.
+	 *
+	 * @var string
+	 */
 	var $template_before = '';
 
+	/**
+	 * Holds the "after" template data for output.
+	 *
+	 * @var string
+	 */
 	var $template_after = '';
 
 	/**
