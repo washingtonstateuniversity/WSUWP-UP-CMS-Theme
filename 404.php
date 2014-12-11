@@ -8,4 +8,4 @@
 
 <?php
 get_sidebar();
-upcms_display_footer();
+upcms_display_template_after();

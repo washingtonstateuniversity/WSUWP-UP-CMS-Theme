@@ -64,4 +64,4 @@
 	<?php endif; ?>
 
 <?php
-upcms_display_footer();
+upcms_display_template_after();

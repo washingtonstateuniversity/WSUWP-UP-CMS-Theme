@@ -1,4 +1,3 @@
 <?php
 
-include("setup.inc");
-echo $before;
+upcms_display_template_before();
