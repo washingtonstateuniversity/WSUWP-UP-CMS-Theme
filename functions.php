@@ -145,7 +145,7 @@ class CMS_Theme {
 		}
 
 		if ( ! empty( $result[1] ) ) {
-			$this->template_after = $result[1];
+			$this->template_after = str_replace( '</body>', '', $result[1] );
 		}
 	}
 }
@@ -173,4 +173,6 @@ function upcms_display_template_after() {
 		$wsuwp_cms_theme->get_template_data();
 	}
 	echo $wsuwp_cms_theme->template_after;
+	wp_footer();
+	echo '</body>';
 }
