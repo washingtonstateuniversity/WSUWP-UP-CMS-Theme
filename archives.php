@@ -28,4 +28,4 @@ foreach( $myposts as $post ) {
 <?php
 get_sidebar();
 wp_footer();
-upcms_display_footer();
+upcms_display_template_after();

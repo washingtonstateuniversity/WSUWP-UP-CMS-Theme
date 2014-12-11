@@ -1,6 +1,11 @@
 <?php
 
 class CMS_Theme {
+
+	var $template_before = '';
+
+	var $template_after = '';
+
 	/**
 	 * Setup theme hooks.
 	 */
@@ -72,8 +77,47 @@ class CMS_Theme {
 		</style>
 	<?php
 	}
+
+	/**
+	 * Retrieve template data from upstream and populate the properties of this class
+	 * with that data.
+	 */
+	public function get_template_data() {
+		$cms_template = get_option( 'wsuwp_cms_template' );
+
+		if ( empty( $cms_template['host'] ) ) {
+			return;
+		}
+
+		$the_title =  single_post_title( '', false );
+		if ( empty( $the_title ) ) {
+			$the_title = $cms_template['title'];
+		}
+
+		$soapendpoint = 'http://' . esc_attr( $cms_template['host'] ) . '/edit/SoapService.asmx?wsdl';
+		$client = new SoapClient( $soapendpoint, array( 'trace' => 1, 'exceptions' => 1 ) );
+
+		$template_args = array(
+			'title'      => esc_html( $the_title ),
+			'templateid' => absint( $cms_template['id'] ),
+			'regionlist' => 'body',
+			'currenturl' => esc_attr( $cms_template['url'] ),
+			'siteid'     => 1,
+			'variables'  => '',
+		);
+		$template = $client->getTemplate( $template_args );
+		$result = $template->getTemplateResult->string;
+
+		if ( ! empty( $result[0] ) ) {
+			$this->template_before = $result[0];
+		}
+
+		if ( ! empty( $result[1] ) ) {
+			$this->template_after = $result[1];
+		}
+	}
 }
-new CMS_Theme();
+$wsuwp_cms_theme = new CMS_Theme();
 
 add_action( 'widgets_init', 'upcms_theme_widgets_init' );
 /**
@@ -89,10 +133,24 @@ function upcms_theme_widgets_init() {
 	register_sidebar( $widget_options );
 }
 
-function upcms_display_footer() {
-	global $after;
-
-	if ( ! empty( $after ) ) {
-		echo $after;
+/**
+ * Output the "before" data provided from our call to the CMS Template.
+ */
+function upcms_display_template_before() {
+	global $wsuwp_cms_theme;
+	if ( empty( $wsuwp_cms_theme->template_before ) ) {
+		$wsuwp_cms_theme->get_template_data();
 	}
+	echo $wsuwp_cms_theme->template_before;
+}
+
+/**
+ * Output the "after" data provided from our call to the CMS Template.
+ */
+function upcms_display_template_after() {
+	global $wsuwp_cms_theme;
+	if ( empty( $wsuwp_cms_theme->template_after ) ) {
+		$wsuwp_cms_theme->get_template_data();
+	}
+	echo $wsuwp_cms_theme->template_after;
 }
