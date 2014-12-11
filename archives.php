@@ -2,8 +2,8 @@
 /*
 Template Name: Archives
 */
-
-$cms_template_args = array( 'url' => '/blog/perspectives/?page_id=342' );
+$current_url = home_url(add_query_arg(array(),$wp->request));
+$cms_template_args = array( 'url' => $current_url );
 upcms_display_template_before( $cms_template_args );
 ?>
 <style>input.form-white { width:95% !important; }</style>
