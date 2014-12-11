@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class CMS_Theme
+ */
 class CMS_Theme {
 
 	/**
@@ -48,7 +51,7 @@ class CMS_Theme {
 	/**
 	 * Sanitize saved CMS template information.
 	 *
-	 * @param $data
+	 * @param array $settings
 	 *
 	 * @return mixed
 	 */
@@ -105,9 +108,14 @@ class CMS_Theme {
 	/**
 	 * Retrieve template data from upstream and populate the properties of this class
 	 * with that data.
+	 *
+	 * @param array $args
 	 */
-	public function get_template_data() {
+	public function get_template_data( $args = array() ) {
 		$cms_template = get_option( 'wsuwp_cms_template' );
+
+		// Allow uses of `get_template_data()` to override the default settings.
+		wp_parse_args( $args, $cms_template );
 
 		if ( empty( $cms_template['host'] ) ) {
 			return;
@@ -146,10 +154,10 @@ $wsuwp_cms_theme = new CMS_Theme();
 /**
  * Output the "before" data provided from our call to the CMS Template.
  */
-function upcms_display_template_before() {
+function upcms_display_template_before( $args = array() ) {
 	global $wsuwp_cms_theme;
 	if ( empty( $wsuwp_cms_theme->template_before ) ) {
-		$wsuwp_cms_theme->get_template_data();
+		$wsuwp_cms_theme->get_template_data( $args );
 	}
 	echo $wsuwp_cms_theme->template_before;
 }

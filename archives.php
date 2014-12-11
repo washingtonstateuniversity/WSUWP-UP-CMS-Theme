@@ -3,7 +3,8 @@
 Template Name: Archives
 */
 
-get_header();
+$cms_template_args = array( 'url' => '/blog/perspectives/?page_id=342' );
+upcms_display_template_before( $cms_template_args );
 ?>
 <style>input.form-white { width:95% !important; }</style>
 <h5>Perspectives</h5>
