@@ -6,8 +6,8 @@ $cms_template_args = array( 'url' => get_the_permalink() );
 upcms_display_template_before( $cms_template_args );
 ?>
 <style>input.form-white { width:95% !important; }</style>
-<h1>Archives</h1>
-<div class="divider"></div>
+<h3>Archives</h3>
+
 
 <aside class="sm">
 	<?php get_sidebar();?>
