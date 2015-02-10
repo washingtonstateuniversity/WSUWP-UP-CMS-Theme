@@ -34,8 +34,8 @@ class CMS_Theme {
 		$widget_options = array(
 			'before_widget' => '<p id="%1$s" class="widget %2$s">',
 			'after_widget' => '</p>',
-			'before_title' => '<h4 class="widgettitle">',
-			'after_title' => '</h4>',
+			'before_title' => '<h5 class="widgettitle">',
+			'after_title' => '</h5>',
 		);
 		register_sidebar( $widget_options );
 	}
