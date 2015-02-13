@@ -35,7 +35,7 @@
 	h3{ line-height:normal; }
 	.wpdate { margin-top:20px; }
 </style>
-	<aside class="sm">
+	<aside>
 		<?php get_sidebar();?>
 	</aside>
 
