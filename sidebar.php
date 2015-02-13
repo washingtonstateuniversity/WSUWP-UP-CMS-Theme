@@ -1,4 +1,4 @@
-<div class="sidebar theme1">
+<div class="sidebar theme2">
 	<nav>
 		<?php dynamic_sidebar(); ?>
 	</nav>
