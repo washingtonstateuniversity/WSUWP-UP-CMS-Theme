@@ -43,7 +43,7 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
-				<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+				<h3><?php the_title(); ?></h3>
 				<p class="wpdate"><em><?php the_date(); ?></em></p>
 
 				<div class="entry">

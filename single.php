@@ -9,7 +9,7 @@
 		<div class="navigation"></div>
 		<br/>
 		<div class="post2" id="post-<?php the_ID(); ?>">
-			<aside class="sm">
+			<aside>
 				<?php get_sidebar();?>
 			</aside>
 			<h3><?php the_title(); ?></h3>
