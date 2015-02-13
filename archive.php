@@ -35,7 +35,7 @@
 				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark"
 													title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 				</h3>
-				<aside class="sm">
+				<aside>
 					<?php get_sidebar(); ?>
 				</aside>
 				<small><?php the_time( 'l, F jS, Y' ) ?></small>

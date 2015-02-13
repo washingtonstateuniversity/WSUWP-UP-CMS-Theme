@@ -9,7 +9,7 @@ upcms_display_template_before( $cms_template_args );
 <h3>Archives</h3>
 
 
-<aside class="sm">
+<aside>
 	<?php get_sidebar();?>
 </aside>
 
