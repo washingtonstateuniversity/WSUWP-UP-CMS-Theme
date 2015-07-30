@@ -25,6 +25,23 @@ class CMS_Theme {
 	public function __construct() {
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_action( 'admin_init', array( $this, 'display_settings' ) );
+		add_filter( 'home_url', array( $this, 'force_http_home_url' ) );
+	}
+
+	/**
+	 * The external template files do not provide HTTPS assets, so we need to
+	 * force HTTP whenever a front end URL is generated. :(
+	 *
+	 * This does not prevent a user from choosing to visit a URL at HTTPS.
+	 *
+	 * @param string $url The site's home_url, possibly HTTP or HTTPS.
+	 *
+	 * @return string The site's modified home_url, always HTTP.
+	 */
+	public function force_http_home_url( $url ) {
+		$url = str_replace( 'https:', 'http:', $url );
+
+		return $url;
 	}
 
 	/**
